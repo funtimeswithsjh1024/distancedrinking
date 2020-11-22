@@ -16,13 +16,13 @@ public class Pyramid
      * @param cards : Cards to be put in the row.
      */
     ArrayList<Row> PyramidRows = new ArrayList<>();
-    public Pyramid(PyramidDeck d, int size) throws Exception{
+    public Pyramid(PyramidDeck d, int size){
         int totalCards = 0;
         for(int i = 1; i <= size; i++){
             totalCards += i;
 
         }
-        System.out.println("Total cards: " + totalCards);
+
 
         if(totalCards > d.getSize()){
             throw new IllegalArgumentException();
@@ -90,16 +90,12 @@ public class Pyramid
         f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         f.setLayout( null );
 
-        try{
+
             Pyramid p = new Pyramid(d, 5);
             p.paintPyramid(f, 200, 50);
             System.out.println(p.toString());
-        }
-        catch(Exception e){
-            System.out.println(e);
-            System.out.println("ERROR: There are not enough cards left " +
-                    "in the deck to make a pyramid of that size.");
-        }
+
+
 
         f.setSize( 600, 600 );
         f.setVisible( true );

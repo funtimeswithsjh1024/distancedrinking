@@ -9,7 +9,8 @@ import java.util.ArrayList;
 
 public class Row
 {
-
+    private int xLocation;
+    private int yLocation;
     /**
      * Constructor for a row of cards.
      *
@@ -50,6 +51,20 @@ public class Row
     }
 
     /**
+     * Attempt to replace a card in a Pyramid game.
+     * If the replacement fails because the Deck is empty,
+     * return false.
+     * @return whether or not the replacement was successful
+     */
+    public boolean replaceCard(Deck d, int index){
+        if(d.getSize() == 0){
+            return false;
+        }
+        Card c = d.drawCard();
+        RowCards.set(index, c);
+        return true;
+    }
+    /**
      * Method used to paint the cards in the window.
      * It will calculate the X positions of all cards
      * based on an initial X, and it will
@@ -67,8 +82,13 @@ public class Row
             xPos += 100;
             frame.add(c);
         }
+        setXLocation(xPos);
+        setYLocation(yPos);
     }
-
+    public void setXLocation(int x){xLocation = x;}
+    public void setYLocation(int y){yLocation = y;}
+    public int getXLocation(){return xLocation;}
+    public int getYLocation(){return yLocation;}
 
     /**
      * Main method tests the Row class.

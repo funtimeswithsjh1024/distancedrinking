@@ -309,6 +309,19 @@ public class Card extends JLabel
         }
         return rankString + suitString;
     }
+    /**
+     * Returns whether or not a card is a face card.
+     * @return boolean
+     */
+    public boolean isFaceCard(){
+        if(this.getRank() == Rank.JACK ||
+            this.getRank() == Rank.QUEEN||
+            this.getRank() == Rank.KING  )
+        {
+            return true;
+        }
+        return false;
+    }
     //------------------- main unit test ---------------------------
     /**
      * Unit test.
